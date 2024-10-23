@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="LibreriaPU">
+        <class>org.example.ACTIVIDAD_INTEGRADORA.entidades.Autor</class>
+        <class>org.example.ACTIVIDAD_INTEGRADORA.entidades.Libro</class>
+        <class>org.example.ACTIVIDAD_INTEGRADORA.entidades.Editorial</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/libreria?serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="DB_PASSWORD"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="ViveroPU">
+        <class>org.example.CLASE_II_JPA.entidades.GamaProducto</class>
+        <class>org.example.CLASE_II_JPA.entidades.Oficina</class>
+        <class>org.example.CLASE_II_JPA.entidades.Cliente</class>
+        <class>org.example.CLASE_II_JPA.entidades.Empleado</class>
+        <class>org.example.CLASE_II_JPA.entidades.DetallePedido</class>
+        <class>org.example.CLASE_II_JPA.entidades.Pago</class>
+        <class>org.example.CLASE_II_JPA.entidades.Pedido</class>
+        <class>org.example.CLASE_II_JPA.entidades.Producto</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vivero-jpa?serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="DB_PASSWORD"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
