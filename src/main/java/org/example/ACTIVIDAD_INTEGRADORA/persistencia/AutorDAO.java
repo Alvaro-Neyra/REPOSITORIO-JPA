@@ -2,6 +2,10 @@ package org.example.ACTIVIDAD_INTEGRADORA.persistencia;
 
 import jakarta.persistence.EntityManager;
 import org.example.ACTIVIDAD_INTEGRADORA.entidades.Autor;
+import org.example.ACTIVIDAD_INTEGRADORA.entidades.Editorial;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AutorDAO {
     private final EntityManager em;
@@ -68,5 +72,33 @@ public class AutorDAO {
             throw e;
         }
         return autor;
+    }
+
+    public List<Autor> listarAutores() throws Exception {
+        List<Autor> autores = new ArrayList<Autor>();
+        try {
+            autores = em.createQuery("SELECT a FROM Autor a", Autor.class).getResultList();
+            if (!autores.isEmpty()) {
+                System.out.println("Autores encontrados");
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return autores;
+    }
+
+    public List<Autor> buscarPorNombre(String nombre) throws Exception {
+        List<Autor> autores = new ArrayList<Autor>();
+        try {
+            autores = em.createQuery("SELECT a FROM Autor a WHERE a.nombre = :nombre", Autor.class)
+                    .setParameter("nombre", nombre)
+                    .getResultList();
+            if (!autores.isEmpty()) {
+                System.out.println("Autor encontrado");
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return autores;
     }
 }

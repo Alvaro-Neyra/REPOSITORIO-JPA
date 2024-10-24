@@ -1,7 +1,12 @@
 package org.example.ACTIVIDAD_INTEGRADORA.persistencia;
 
 import jakarta.persistence.EntityManager;
+import org.example.ACTIVIDAD_INTEGRADORA.entidades.Editorial;
 import org.example.ACTIVIDAD_INTEGRADORA.entidades.Libro;
+
+import java.awt.image.AreaAveragingScaleFilter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LibroDAO {
     private final EntityManager em;
@@ -71,5 +76,28 @@ public class LibroDAO {
             throw e;
         }
         return libro;
+    }
+
+    public List<Libro> listarLibros() throws Exception {
+        List<Libro> libros = new ArrayList<>();
+        try {
+            libros = em.createQuery("SELECT l FROM Libro l", Libro.class).getResultList();
+            if (!libros.isEmpty()) {
+                System.out.println("Libros encontrados");
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return libros;
+    }
+
+    public List<Libro> buscarPorTitulo(String titulo) throws Exception {
+        List<Libro> libros = new ArrayList<>();
+        try {
+            libros = em.createQuery("SELECT l FROM Libro l WHERE l.titulo = :titulo", Libro.class).setParameter("titulo", titulo).getResultList();
+        } catch (Exception e) {
+            throw e;
+        }
+        return libros;
     }
 }

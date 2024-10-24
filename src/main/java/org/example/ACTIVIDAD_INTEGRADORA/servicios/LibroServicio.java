@@ -5,6 +5,10 @@ import org.example.ACTIVIDAD_INTEGRADORA.entidades.Libro;
 import org.example.ACTIVIDAD_INTEGRADORA.persistencia.LibroDAO;
 import org.example.ACTIVIDAD_INTEGRADORA.Validaciones;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 public class LibroServicio {
     private final LibroDAO libroDAO;
 
@@ -26,6 +30,7 @@ public class LibroServicio {
             nuevoLibro.setAnio(anio);
             nuevoLibro.setEjemplares(ejemplares);
             nuevoLibro.setAlta(alta);
+            verificarLibroRepetido(nuevoLibro);
             libroDAO.guardarLibro(nuevoLibro);
         } catch (Exception e) {
             System.out.println(e.toString() + " Error al guardar el libro!");
@@ -100,6 +105,36 @@ public class LibroServicio {
             e.printStackTrace();
         }
         return libroDarBaja;
+    }
+
+    public List<Libro> buscarPorTitulo(String titulo) {
+        List<Libro> libros = new ArrayList<>();
+        try {
+            libros = libroDAO.buscarPorTitulo(titulo);
+        } catch (Exception e) {
+            System.out.println(e.toString() + " Error al buscar libro!");
+            e.printStackTrace();
+        }
+        return libros;
+    }
+
+    public List<Libro> listarLibro() {
+        List<Libro> libros = new ArrayList<Libro>();
+        try {
+            libros = libroDAO.listarLibros();
+        } catch (Exception e) {
+            System.out.println(e.toString() + " Error al listar libros!");
+            e.printStackTrace();
+        }
+        return libros;
+    }
+
+
+    public void verificarLibroRepetido(Libro libro) throws Exception {
+        List<Libro> librosRepetidos = buscarPorTitulo(libro.getTitulo());
+        if (!librosRepetidos.isEmpty()) {
+            throw new Exception("Libro ya existe en el sistema!");
+        }
     }
 }
 

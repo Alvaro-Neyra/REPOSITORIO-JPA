@@ -5,6 +5,9 @@ import org.example.ACTIVIDAD_INTEGRADORA.Validaciones;
 import org.example.ACTIVIDAD_INTEGRADORA.entidades.Editorial;
 import org.example.ACTIVIDAD_INTEGRADORA.persistencia.EditorialDAO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EditorialServicio {
     private final EditorialDAO editorialDAO;
 
@@ -20,6 +23,7 @@ public class EditorialServicio {
             Editorial nuevaEditorial = new Editorial();
             nuevaEditorial.setNombre(nombre);
             nuevaEditorial.setAlta(alta);
+            verificarEditorialRepetido(nuevaEditorial);
             editorialDAO.guardarEditorial(nuevaEditorial);
         } catch (Exception e) {
             System.out.println(e.toString() + " Error al guardar la editorial!");
@@ -91,6 +95,35 @@ public class EditorialServicio {
             e.printStackTrace();
         }
         return editorialDarBaja;
+    }
+
+    public List<Editorial> buscarEditorialPorNombre(String nombre) {
+        List<Editorial> editoriales = new ArrayList<>();
+        try {
+            editoriales = editorialDAO.buscarPorNombre(nombre);
+        } catch (Exception e) {
+            System.out.println(e.toString() + " Error al buscar la editorial!");
+            e.printStackTrace();
+        }
+        return editoriales;
+    }
+
+    public List<Editorial> listarEditoriales() {
+        List<Editorial> editorials = new ArrayList<>();
+        try {
+            editorials = editorialDAO.listarEditoriales();
+        } catch (Exception e) {
+            System.out.println(e.toString() + " Error al listar las editoriales!");
+            e.printStackTrace();
+        }
+        return editorials;
+    }
+
+    public void verificarEditorialRepetido(Editorial editorial) throws Exception {
+        List<Editorial> editoriales = buscarEditorialPorNombre(editorial.getNombre());
+        if (!editoriales.isEmpty()) {
+            throw new Exception("Editorial ya existe en el sistema!");
+        }
     }
 }
 

@@ -1,7 +1,11 @@
 package org.example.ACTIVIDAD_INTEGRADORA.persistencia;
 
 import jakarta.persistence.EntityManager;
+import org.example.ACTIVIDAD_INTEGRADORA.entidades.Autor;
 import org.example.ACTIVIDAD_INTEGRADORA.entidades.Editorial;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EditorialDAO {
     private final EntityManager em;
@@ -68,5 +72,28 @@ public class EditorialDAO {
             throw e;
         }
         return editorial;
+    }
+
+    public List<Editorial> listarEditoriales() throws Exception {
+        List<Editorial> editoriales = new ArrayList<Editorial>();
+        try {
+            editoriales = em.createQuery("SELECT e from Editorial e", Editorial.class).getResultList();
+            if (!editoriales.isEmpty()) {
+                System.out.println("Editoriales encontrados");
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return editoriales;
+    }
+
+    public List<Editorial> buscarPorNombre(String nombre) throws Exception {
+        List<Editorial> editoriales = new ArrayList<>();
+        try {
+            editoriales = em.createQuery("SELECT e FROM Editorial e WHERE e.nombre = :nombre", Editorial.class).setParameter("nombre", nombre).getResultList();
+        } catch (Exception e) {
+            throw e;
+        }
+        return editoriales;
     }
 }
