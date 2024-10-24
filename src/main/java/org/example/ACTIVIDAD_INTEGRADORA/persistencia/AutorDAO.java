@@ -18,7 +18,7 @@ public class AutorDAO {
         }
     }
 
-    public Autor buscarAutor(Integer id) throws Exception {
+    public Autor buscarAutor(int id) throws Exception {
         Autor autor = null;
         try {
             autor = em.find(Autor.class, id);
@@ -28,7 +28,7 @@ public class AutorDAO {
         return autor;
     }
 
-    public Autor modificarAutor(Integer id, Autor autor) throws Exception {
+    public Autor modificarAutor(int id, Autor autor) throws Exception {
         Autor autorModificado = buscarAutor(id);
         if (autorModificado == null) {
             throw new Exception("El autor con ID " + id + " no existe.");
@@ -43,7 +43,7 @@ public class AutorDAO {
         return autorModificado;
     }
 
-    public Autor eliminarAutor(Integer id) throws Exception {
+    public Autor eliminarAutor(int id) throws Exception {
         Autor autor = buscarAutor(id);
         if (autor == null) {
             throw new Exception("El autor con ID " + id + " no existe.");
@@ -56,7 +56,7 @@ public class AutorDAO {
         return autor;
     }
 
-    public Autor darBaja(Integer id) throws Exception {
+    public Autor darBaja(int id) throws Exception {
         Autor autor = buscarAutor(id);
         if (autor == null) {
             throw new Exception("El autor con ID " + id + " no existe.");

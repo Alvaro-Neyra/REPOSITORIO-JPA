@@ -46,35 +46,44 @@ public class Application {
             // Guardar y obtener el ID generado para Autor
             System.out.println("---- Prueba Servicio Autor ----");
             autorServicio.guardarAutor("Gabriel García Márquez", true);
-            Autor autorGuardado = autorServicio.buscarAutor(1);  // Reemplaza con el ID generado si lo imprimes
-            if (autorGuardado != null) {
-                System.out.println("ID del autor guardado: " + autorGuardado.getIdAutor());
-                autorServicio.modificarAutor(autorGuardado.getIdAutor(), new Autor("Gabriel Márquez", true));
-                autorServicio.darBajaAutor(autorGuardado.getIdAutor());
-                autorServicio.eliminarAutor(autorGuardado.getIdAutor());
-            }
+            Autor autorGuardado = autorServicio.buscarAutor(11);  // Reemplaza con el ID generado si lo imprimes
+            System.out.println("Autor guardado: " + autorGuardado.toString());
+            autorServicio.modificarAutor(autorGuardado.getIdAutor(), new Autor("Gabriel Márquez", true));
+            Autor autorModificado = autorServicio.buscarAutor(11);
+            System.out.println("Autor modificado: " + autorModificado.toString());
+            autorServicio.darBajaAutor(autorGuardado.getIdAutor());
+            Autor autorDadoDeBaja = autorServicio.buscarAutor(11);
+            System.out.println("Autor dado de baja: " + autorDadoDeBaja.toString());
+            Autor autorEliminado = autorServicio.eliminarAutor(autorGuardado.getIdAutor());
+            System.out.println("Autor eliminado: " + autorEliminado.toString());
 
             // Guardar y obtener el ID generado para Editorial
             System.out.println("---- Prueba Servicio Editorial ----");
             editorialServicio.guardarEditorial("Editorial Planeta", true);
-            Editorial editorialGuardada = editorialServicio.buscarEditorial(1);  // Reemplaza con el ID generado si lo imprimes
-            if (editorialGuardada != null) {
-                System.out.println("ID de la editorial guardada: " + editorialGuardada.getId());
-                editorialServicio.modificarEditorial(editorialGuardada.getId(), new Editorial("Editorial Random House", true));
-                editorialServicio.darBajaEditorial(editorialGuardada.getId());
-                editorialServicio.eliminarEditorial(editorialGuardada.getId());
-            }
+            Editorial editorialGuardada = editorialServicio.buscarEditorial(11);  // Reemplaza con el ID generado si lo imprimes
+            System.out.println("Editorial guardada: " + editorialGuardada.toString());
+            editorialServicio.modificarEditorial(editorialGuardada.getId(), new Editorial("Editorial Random House", true));
+            Editorial editorialModificada = editorialServicio.buscarEditorial(11);
+            System.out.println("Editorial modificada: " + editorialModificada.toString());
+            editorialServicio.darBajaEditorial(editorialModificada.getId());
+            Editorial editorialDadoDeBaja = editorialServicio.buscarEditorial(11);
+            System.out.println("Editorial dado de baja: " + editorialDadoDeBaja.toString());
+            Editorial editorialEliminada = editorialServicio.eliminarEditorial(editorialGuardada.getId());
+            System.out.println("Editorial eliminada: " + editorialEliminada.toString());
 
             // Guardar y obtener el ID generado para Libro
             System.out.println("---- Prueba Servicio Libro ----");
             libroServicio.guardarLibro(9781234567897L, "Cien años de soledad", 1967, 500, true);
-            Libro libroGuardado = libroServicio.buscarLibro(1);  // Reemplaza con el ID generado si lo imprimes
-            if (libroGuardado != null) {
-                System.out.println("ID del libro guardado: " + libroGuardado.getIdLibro());
-                libroServicio.modificarLibro(libroGuardado.getIdLibro(), new Libro(9781234567897L, "Cien años de soledad (Edición especial)", 1967, 600, true));
-                libroServicio.darBajaLibro(libroGuardado.getIdLibro());
-                libroServicio.eliminarLibro(libroGuardado.getIdLibro());
-            }
+            Libro libroGuardado = libroServicio.buscarLibro(11);  // Reemplaza con el ID generado si lo imprimes
+            System.out.println("Libro guardado: " + libroGuardado.toString());
+            libroServicio.modificarLibro(libroGuardado.getIdLibro(), new Libro(9781234567897L, "Cien años de soledad (Edición especial)", 1967, 600, true));
+            Libro libroModificado = libroServicio.buscarLibro(libroGuardado.getIdLibro());
+            System.out.println("Libro modificado: " + libroModificado.toString());
+            libroServicio.darBajaLibro(libroGuardado.getIdLibro());
+            Libro libroDadoDeBaja = libroServicio.buscarLibro(11);
+            System.out.println("Libro dado de baja: " + libroDadoDeBaja.toString());
+            Libro libroEliminado = libroServicio.eliminarLibro(libroGuardado.getIdLibro());
+            System.out.println("Libro eliminado: " + libroEliminado.toString());
 
             em.getTransaction().commit();
         } catch (Exception e) {

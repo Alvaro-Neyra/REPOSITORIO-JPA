@@ -12,7 +12,7 @@ public class EditorialServicio {
         editorialDAO = new EditorialDAO(e);
     }
 
-    public void guardarEditorial(String nombre, Boolean alta) {
+    public void guardarEditorial(String nombre, boolean alta) {
         try {
             Validaciones.validarCadenaVacia(nombre, "El nombre no puede estar vacío");
             Validaciones.validarBooleanVacio(alta, "El estado 'alta' no puede ser nulo");
@@ -27,7 +27,7 @@ public class EditorialServicio {
         }
     }
 
-    public Editorial buscarEditorial(Integer id) {
+    public Editorial buscarEditorial(int id) {
         Editorial editorial = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -43,7 +43,7 @@ public class EditorialServicio {
         return editorial;
     }
 
-    public Editorial modificarEditorial(Integer id, Editorial editorial) {
+    public Editorial modificarEditorial(int id, Editorial editorial) {
         Editorial editorialModificada = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -61,7 +61,7 @@ public class EditorialServicio {
         return editorialModificada;
     }
 
-    public Editorial eliminarEditorial(Integer id) {
+    public Editorial eliminarEditorial(int id) {
         Editorial editorialEliminada = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -77,7 +77,7 @@ public class EditorialServicio {
         return editorialEliminada;
     }
 
-    public Editorial darBajaEditorial(Integer id) {
+    public Editorial darBajaEditorial(int id) {
         Editorial editorialDarBaja = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");

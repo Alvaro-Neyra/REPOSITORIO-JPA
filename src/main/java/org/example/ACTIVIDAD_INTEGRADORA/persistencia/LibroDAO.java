@@ -18,7 +18,7 @@ public class LibroDAO {
         }
     }
 
-    public Libro buscarLibro(Integer id) throws Exception {
+    public Libro buscarLibro(int id) throws Exception {
         Libro libro = null;
         try {
             libro = em.find(Libro.class, id);
@@ -28,7 +28,7 @@ public class LibroDAO {
         return libro;
     }
 
-    public Libro modificarLibro(Integer id, Libro libro) throws Exception {
+    public Libro modificarLibro(int id, Libro libro) throws Exception {
         Libro libroModificado = buscarLibro(id);
         if (libroModificado == null) {
             throw new Exception("El libro con ID " + id + " no existe.");
@@ -46,7 +46,7 @@ public class LibroDAO {
         return libroModificado;
     }
 
-    public Libro eliminarLibro(Integer id) throws Exception {
+    public Libro eliminarLibro(int id) throws Exception {
         Libro libro = buscarLibro(id);
         if (libro == null) {
             throw new Exception("El libro con ID " + id + " no existe.");
@@ -59,7 +59,7 @@ public class LibroDAO {
         return libro;
     }
 
-    public Libro darBaja(Integer id) throws Exception {
+    public Libro darBaja(int id) throws Exception {
         Libro libro = buscarLibro(id);
         if (libro == null) {
             throw new Exception("El libro con ID " + id + " no existe.");

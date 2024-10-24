@@ -12,7 +12,7 @@ public class LibroServicio {
         this.libroDAO = new LibroDAO(e);
     }
 
-    public void guardarLibro(Long isbn, String titulo, Integer anio, Integer ejemplares, Boolean alta) {
+    public void guardarLibro(long isbn, String titulo, int anio, int ejemplares, boolean alta) {
         try {
             Validaciones.validarNumeroVacio(isbn, "El ISBN no puede estar vacio");
             Validaciones.validarCadenaVacia(titulo, "El título no puede estar vacío");
@@ -33,7 +33,7 @@ public class LibroServicio {
         }
     }
 
-    public Libro buscarLibro(Integer id) {
+    public Libro buscarLibro(int id) {
         Libro libro = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -49,7 +49,7 @@ public class LibroServicio {
         return libro;
     }
 
-    public Libro modificarLibro(Integer id, Libro libro) {
+    public Libro modificarLibro(int id, Libro libro) {
         Libro libroModificado = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -70,7 +70,7 @@ public class LibroServicio {
         return libroModificado;
     }
 
-    public Libro eliminarLibro(Integer id) {
+    public Libro eliminarLibro(int id) {
         Libro libroEliminado = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -86,7 +86,7 @@ public class LibroServicio {
         return libroEliminado;
     }
 
-    public Libro darBajaLibro(Integer id) {
+    public Libro darBajaLibro(int id) {
         Libro libroDarBaja = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");

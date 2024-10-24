@@ -13,7 +13,7 @@ public class AutorServicio {
         autorDAO = new AutorDAO(em);
     }
 
-    public void guardarAutor(String nombre, Boolean alta) {
+    public void guardarAutor(String nombre, boolean alta) {
         try {
             Validaciones.validarCadenaVacia(nombre, "El nombre no puede estar vacío");
             Validaciones.validarBooleanVacio(alta, "El estado 'alta' no puede ser nulo");
@@ -28,7 +28,7 @@ public class AutorServicio {
         }
     }
 
-    public Autor buscarAutor(Integer id) {
+    public Autor buscarAutor(int id) {
         Autor autorBuscado = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -44,7 +44,7 @@ public class AutorServicio {
         return autorBuscado;
     }
 
-    public Autor modificarAutor(Integer id, Autor autor) {
+    public Autor modificarAutor(int id, Autor autor) {
         Autor autorModificado = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -62,7 +62,7 @@ public class AutorServicio {
         return autorModificado;
     }
 
-    public Autor eliminarAutor(Integer id) {
+    public Autor eliminarAutor(int id) {
         Autor autorEliminado = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");
@@ -78,7 +78,7 @@ public class AutorServicio {
         return autorEliminado;
     }
 
-    public Autor darBajaAutor(Integer id) {
+    public Autor darBajaAutor(int id) {
         Autor autorDarBaja = null;
         try {
             Validaciones.validarNumeroVacio(id, "El ID no puede estar vacío");

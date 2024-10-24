@@ -11,36 +11,36 @@ public class Editorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @Column(name = "nombre")
     private String nombre;
 
     @Column(name = "alta")
-    private Boolean alta;
+    private boolean alta;
 
     @Column(name = "libros")
     @OneToMany(mappedBy = "editorial")
     private List<Libro> libros;
 
-    public Editorial(int id, String nombre, Boolean alta) {
+    public Editorial(int id, String nombre, boolean alta) {
         this.id = id;
         this.nombre = nombre;
         this.alta = alta;
     }
 
-    public Editorial(String nombre, Boolean alta) {
+    public Editorial(String nombre, boolean alta) {
         this.nombre = nombre;
         this.alta = alta;
     }
 
     public Editorial() {}
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -52,11 +52,11 @@ public class Editorial {
         this.nombre = nombre;
     }
 
-    public Boolean getAlta() {
+    public boolean getAlta() {
         return alta;
     }
 
-    public void setAlta(Boolean alta) {
+    public void setAlta(boolean alta) {
         this.alta = alta;
     }
 

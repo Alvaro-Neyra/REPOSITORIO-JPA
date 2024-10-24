@@ -10,34 +10,34 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer idAutor;
+    private int idAutor;
     @Column(name = "nombre")
     private String nombre;
     @Column (name = "alta")
-    private Boolean alta;
+    private boolean alta;
 
     @Column(name = "autores")
     @OneToMany(mappedBy = "autor")
     private List<Libro> libros;
 
-    public Autor(Integer idAutor, String nombre, Boolean alta) {
+    public Autor(int idAutor, String nombre, boolean alta) {
         this.idAutor = idAutor;
         this.nombre = nombre;
         this.alta = alta;
     }
 
-    public Autor(String nombre, Boolean alta) {
+    public Autor(String nombre, boolean alta) {
         this.nombre = nombre;
         this.alta = alta;
     }
 
     public Autor() {}
 
-    public Integer getIdAutor() {
+    public int getIdAutor() {
         return idAutor;
     }
 
-    public void setIdAutor(Integer idAutor) {
+    public void setIdAutor(int idAutor) {
         this.idAutor = idAutor;
     }
 
@@ -49,11 +49,11 @@ public class Autor {
         this.nombre = nombre;
     }
 
-    public Boolean getAlta() {
+    public boolean getAlta() {
         return alta;
     }
 
-    public void setAlta(Boolean alta) {
+    public void setAlta(boolean alta) {
         this.alta = alta;
     }
 

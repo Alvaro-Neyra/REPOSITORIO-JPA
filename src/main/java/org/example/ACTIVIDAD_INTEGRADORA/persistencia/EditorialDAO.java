@@ -18,7 +18,7 @@ public class EditorialDAO {
         }
     }
 
-    public Editorial buscarEditorial(Integer id) throws Exception {
+    public Editorial buscarEditorial(int id) throws Exception {
         Editorial editorial = null;
         try {
             editorial = em.find(Editorial.class, id);
@@ -28,7 +28,7 @@ public class EditorialDAO {
         return editorial;
     }
 
-    public Editorial modificarEditorial(Integer id, Editorial editorial) throws Exception {
+    public Editorial modificarEditorial(int id, Editorial editorial) throws Exception {
         Editorial editorialModificada = buscarEditorial(id);
         if (editorialModificada == null) {
             throw new Exception("La editorial con ID " + id + " no existe.");
@@ -43,7 +43,7 @@ public class EditorialDAO {
         return editorialModificada;
     }
 
-    public Editorial eliminarEditorial(Integer id) throws Exception {
+    public Editorial eliminarEditorial(int id) throws Exception {
         Editorial editorial = buscarEditorial(id);
         if (editorial == null) {
             throw new Exception("La editorial con ID " + id + " no existe.");
@@ -56,7 +56,7 @@ public class EditorialDAO {
         return editorial;
     }
 
-    public Editorial darBaja(Integer id) throws Exception {
+    public Editorial darBaja(int id) throws Exception {
         Editorial editorial = buscarEditorial(id);
         if (editorial == null) {
             throw new Exception("La editorial con ID " + id + " no existe.");

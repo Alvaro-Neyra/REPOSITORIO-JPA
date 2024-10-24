@@ -10,22 +10,22 @@ public class Libro {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_libro")
-    private Integer idLibro;
+    private int idLibro;
 
     @Column(name = "isbn")
-    private Long isbn;
+    private long isbn;
 
     @Column(name = "titulo")
     private String titulo;
 
     @Column(name = "anio")
-    private Integer anio;
+    private int anio;
 
     @Column(name = "ejemplares")
-    private Integer ejemplares;
+    private int ejemplares;
 
     @Column(name = "alta")
-    private Boolean alta;
+    private boolean alta;
 
     @ManyToOne
     @JoinColumn(name = "id_autor")
@@ -35,7 +35,7 @@ public class Libro {
     @JoinColumn(name = "id_editorial")
     private Editorial editorial;
 
-    public Libro(Integer idLibro, Long isbn, String titulo, Integer anio, Integer ejemplares, Boolean alta) {
+    public Libro(int idLibro, long isbn, String titulo, int anio, int ejemplares, boolean alta) {
         this.idLibro = idLibro;
         this.isbn = isbn;
         this.titulo = titulo;
@@ -44,7 +44,7 @@ public class Libro {
         this.alta = alta;
     }
 
-    public Libro(Long isbn, String titulo, Integer anio, Integer ejemplares, Boolean alta) {
+    public Libro(long isbn, String titulo, int anio, int ejemplares, boolean alta) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anio = anio;
@@ -56,19 +56,19 @@ public class Libro {
 
     }
 
-    public Integer getIdLibro() {
+    public int getIdLibro() {
         return idLibro;
     }
 
-    public void setIdLibro(Integer idLibro) {
+    public void setIdLibro(int idLibro) {
         this.idLibro = idLibro;
     }
 
-    public Long getIsbn() {
+    public long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Long isbn) {
+    public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
 
@@ -80,27 +80,27 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public Integer getAnio() {
+    public int getAnio() {
         return anio;
     }
 
-    public void setAnio(Integer anio) {
+    public void setAnio(int anio) {
         this.anio = anio;
     }
 
-    public Integer getEjemplares() {
+    public int getEjemplares() {
         return ejemplares;
     }
 
-    public void setEjemplares(Integer ejemplares) {
+    public void setEjemplares(int ejemplares) {
         this.ejemplares = ejemplares;
     }
 
-    public Boolean getAlta() {
+    public boolean getAlta() {
         return alta;
     }
 
-    public void setAlta(Boolean alta) {
+    public void setAlta(boolean alta) {
         this.alta = alta;
     }
 
